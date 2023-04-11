@@ -6,7 +6,7 @@ class BarisKolom extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Widget Column"),
+        title: const Text("Baris Kolom"),
       ),
       body: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

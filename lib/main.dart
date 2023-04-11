@@ -1,18 +1,19 @@
 import 'package:flutter/material.dart';
-// import 'hello_word.dart';
-// import 'column_widget.dart';
-import 'row_widget.dart';
-import 'baris_kolom.dart';
+import 'package:flutter_application_jaja/ui/pasien_page.dart';
+import 'package:flutter_application_jaja/ui/poli_page.dart';
+import '/ui/poli_page.dart';
+import '/ui/pegawai_page.dart';
+import '/ui/list_data_page.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Klinik', home: BarisKolom());
+    return MaterialApp(
+      title: 'Klinik APP JAJA',
+      debugShowCheckedModeBanner: false,
+      home: ListDataPage(),
+    );
   }
 }
