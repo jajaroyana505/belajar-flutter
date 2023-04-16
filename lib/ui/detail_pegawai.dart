@@ -21,6 +21,10 @@ class _DetailPegawaiState extends State<DetailPegawai> {
         children: [
           SizedBox(height: 20),
           Text(
+            "ID : ${widget.pegawai.id}",
+            style: TextStyle(fontSize: 20),
+          ),
+          Text(
             "Nip : ${widget.pegawai.nip}",
             style: TextStyle(fontSize: 20),
           ),

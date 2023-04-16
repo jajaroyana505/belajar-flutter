@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_jaja/model/poli.dart';
 import 'package:flutter_application_jaja/ui/poli_detail.dart';
+import '../service/poli_service.dart';
 
 class PoliForm extends StatefulWidget {
   const PoliForm({Key? key}) : super(key: key);
@@ -20,15 +21,20 @@ class _PoliFormState extends State<PoliForm> {
         title: const Text("Tambah Poli"),
       ),
       body: SingleChildScrollView(
-        child: Form(
-          key: _formKey,
-          child: Column(children: [
-            _fieldNamaPoli(),
-            SizedBox(
-              height: 20,
+        child: Card(
+          child: Container(
+            padding: EdgeInsets.all(20),
+            child: Form(
+              key: _formKey,
+              child: Column(children: [
+                _fieldNamaPoli(),
+                SizedBox(
+                  height: 20,
+                ),
+                _tombolSimpan()
+              ]),
             ),
-            _tombolSimpan()
-          ]),
+          ),
         ),
       ),
     );
@@ -41,7 +47,7 @@ class _PoliFormState extends State<PoliForm> {
     );
   }
 
-  _tombolSimpan() {
+  tombolSimpan() {
     return ElevatedButton(
       onPressed: () {
         Poli poli = new Poli(namaPoli: _namaPoliCtrl.text);
@@ -50,5 +56,19 @@ class _PoliFormState extends State<PoliForm> {
       },
       child: const Text("Simpan"),
     );
+  }
+
+  _tombolSimpan() {
+    return ElevatedButton(
+        onPressed: () async {
+          Poli poli = new Poli(namaPoli: _namaPoliCtrl.text);
+          await PoliService().simpan(poli).then((value) {
+            Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => PoliDetail(poli: value)));
+          });
+        },
+        child: const Text("Simpan"));
   }
 }

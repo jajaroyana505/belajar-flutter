@@ -10,7 +10,15 @@ class Beranda extends StatelessWidget {
       drawer: Sidebar(),
       appBar: AppBar(title: Text("Beranda")),
       body: Center(
-        child: Text("Selamat Datang"),
+        child: Container(
+          width: 400,
+          height: 400,
+          decoration: BoxDecoration(
+            // border: Border.all(
+            //     color: Colors.black, width: 5.0, style: BorderStyle.solid),
+            color: Color.fromRGBO(5, 222, 255, 0.941),
+          ),
+        ),
       ),
     );
   }
